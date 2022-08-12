@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+   build:
+      - echo Entered the build phase....
+      - mvn clean package
+   post_build:
+      commands:
+       - echo Build completed successfully
+artificats:
+  files:
+     - target/payment-service.jar
+  discard-paths: yes
