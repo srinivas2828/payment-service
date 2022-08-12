@@ -1,19 +1,19 @@
 version: 0.2
 
 phases:
-   install:
-   runtime-versions:
-       java: openjdk8
+  install:
+    runtime-versions:
+      java: corretto11
+  pre_build:
     commands:
-        - apt-get update -y
-        - apt-get install -y maven
-   build:
-      - echo Entered the build phase....
-      - mvn clean install
-   post_build:
-      commands:
-       - echo Build completed successfully
-artificats:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn install
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
   files:
-     - target/payment-service.jar
-  discard-paths: yes
+    - target/payment-service.jar
